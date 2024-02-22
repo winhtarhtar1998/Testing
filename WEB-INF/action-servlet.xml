@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!--<bean id="idXxxDao" class="com.gic.frame.dao.XxxDaoImpl"> <property 
+		name="sessionFactory" ref="sessionFactory" /> </bean> -->
+	<bean id="idTutorDao" class="com.system.dao.TutorDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="idTeachDao" class="com.system.dao.TeachDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="idSubjectDao" class="com.system.dao.SubjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="idStudentDao" class="com.system.dao.StudentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="idRequestDao" class="com.system.dao.RequestDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- DataSource definition -->
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<bean id="dbConf" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg>
+			<value>database.properties</value>
+		</constructor-arg>
+	</bean>
+	<bean id="databaseConfPostProcessor"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<ref bean="dbConf" />
+		</property>
+	</bean>
+	<!-- //Transaction Manager -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- sessionFactory definition -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>com/system/dao/hbm/xml/PjTutor.hbm.xml</value>
+				<value>com/system/dao/hbm/xml/PjRequest.hbm.xml</value>
+				<value>com/system/dao/hbm/xml/PjStudent.hbm.xml</value>
+				<value>com/system/dao/hbm/xml/PjSubject.hbm.xml</value>
+				<value>com/system/dao/hbm/xml/PjTeach.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLInnoDBDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

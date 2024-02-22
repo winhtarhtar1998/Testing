@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- <bean id="loginPath" class="com.gic.frame.presentation.action.LoginAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean> -->
+	
+	<bean id="idTutorService" class="com.system.business.service.TutorService">
+		<property name="myTutorDao" ref="idTutorDao" />
+		<property name="myTeachDao" ref="idTeachDao" />
+		<property name="mySubjectDao" ref="idSubjectDao" />
+		<property name="myStudentDao" ref="idStudentDao" />
+		<property name="myRequestDao" ref="idRequestDao" />
+	</bean>
+	
+	<bean id="idStudentService" class="com.system.business.service.StudentService">
+		<property name="myStudentDao" ref="idStudentDao" />
+		<property name="myTutorDao" ref="idTutorDao" />
+		<property name="mySubjectDao" ref="idSubjectDao" />
+		<property name="myTeachDao" ref="idTeachDao" />
+		<property name="myRequestDao" ref="idRequestDao" />
+	</bean>
+		
+</beans>

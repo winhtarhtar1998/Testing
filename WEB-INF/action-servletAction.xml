@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- <bean name="/loginPath" class="com.gic.frame.presentation.action.LoginAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean> -->
+	<bean name="/loginPathFirst" class="com.system.presentation.action.TutorLoginAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/loginPath" class="com.system.presentation.action.TutorLoginAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/tutorHomePath" class="com.system.presentation.action.TutorHomeAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/logoutPath" class="com.system.presentation.action.TutorLogoutAction">
+	</bean>
+	
+	<bean name="/registerPathFirst" class="com.system.presentation.action.TutorRegistrationAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/registerPath" class="com.system.presentation.action.TutorRegistrationAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/registerPathSuccess" class="com.system.presentation.action.TutorRegisterSuccessAction">
+	</bean>
+	
+	<bean name="/updatePathFirst" class="com.system.presentation.action.TutorUpdateAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/updatePath" class="com.system.presentation.action.TutorUpdateAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	
+	<bean name="/addSubjectPathFirst" class="com.system.presentation.action.TutorAddNewSubjectAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/addSubjectPath" class="com.system.presentation.action.TutorAddNewSubjectAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	
+	<bean name="/editSubjectPathFirst" class="com.system.presentation.action.TutorEditSubjectAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/editSubjectPath" class="com.system.presentation.action.TutorEditSubjectAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	
+	<bean name="/responseStudentsPath" class="com.system.presentation.action.TutorResponseStudentAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/myStudentsPath" class="com.system.presentation.action.TutorMyStudentsAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/reviewFeedbackPath" class="com.system.presentation.action.TutorReviewFeedbackAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/tutorProfilePath" class="com.system.presentation.action.TutorProfileAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	
+	<bean name="/changePasswordPathFirst" class="com.system.presentation.action.TutorChangePasswordAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/changePasswordPath" class="com.system.presentation.action.TutorChangePasswordAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	
+	<bean name="/deleteProfilePathFirst" class="com.system.presentation.action.TutorDeleteAccountAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	<bean name="/deleteProfilePath" class="com.system.presentation.action.TutorDeleteAccountAction">
+		<property name="myTutorService" ref="idTutorService" />
+	</bean>
+	
+	
+	<!-- for student -->
+	<bean name="/StuLoginPathFirst" class="com.system.presentation.action.StudentLoginAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuLoginPath" class="com.system.presentation.action.StudentLoginAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/stuHomePath" class="com.system.presentation.action.StudentHomeAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuLogoutPath" class="com.system.presentation.action.StudentLogoutAction">
+	</bean>
+	
+	<bean name="/StuRegisterPathFirst" class="com.system.presentation.action.StudentRegistrationAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuRegisterPath" class="com.system.presentation.action.StudentRegistrationAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuRegisterPathSuccess" class="com.system.presentation.action.StudentRegisterSuccessAction">
+	</bean>
+	
+	<bean name="/findTutorsDetailPath"
+		class="com.system.presentation.action.StudentFindTutorAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/requestTutorPath" class="com.system.presentation.action.StudentFindTutorAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/findTutorsPath" class="com.system.presentation.action.StudentFindTutorAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/findTutorsPathFirst" class="com.system.presentation.action.StudentFindTutorAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/myTutorsPath" class="com.system.presentation.action.StudentMyTutorsAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/sendFeedbackPath" class="com.system.presentation.action.StudentSendFeedbackAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	
+	<bean name="/sendFeedbackFillPathFirst" class="com.system.presentation.action.StudentSendFeedbackFillAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/sendFeedbackFillPath" class="com.system.presentation.action.StudentSendFeedbackFillAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	
+	<bean name="/myProfilePath" class="com.system.presentation.action.StudentProfileAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	
+	<bean name="/StuUpdatePathFirst" class="com.system.presentation.action.StudentUpdateAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuUpdatePath" class="com.system.presentation.action.StudentUpdateAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	
+	<bean name="/StuChangePasswordPathFirst" class="com.system.presentation.action.StudentChangePasswordAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuChangePasswordPath" class="com.system.presentation.action.StudentChangePasswordAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	
+	<bean name="/StuDeleteProfilePathFirst" class="com.system.presentation.action.StudentDeleteAccountAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+	<bean name="/StuDeleteProfilePath" class="com.system.presentation.action.StudentDeleteAccountAction">
+		<property name="myStudentService" ref="idStudentService" />
+	</bean>
+</beans>
+
+
+

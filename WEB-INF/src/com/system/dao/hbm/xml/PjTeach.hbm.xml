@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.system.business.entity">
+	<class
+		name="PjTeach"
+		table="pj_teach"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="teach_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="teachingType"
+			column="teaching_type"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="fee"
+			column="fee"
+			type="java.lang.Double"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="periodPerWeek"
+			column="period_per_week"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="preferableTime"
+			column="preferable_time"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="preferableDays"
+			column="preferable_days"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<many-to-one
+			name="subject"
+			column="subject_id"
+			class="PjSubject"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="tutor"
+			column="tutor_id"
+			class="PjTutor"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="pjRequests" inverse="true">
+			<key column="teach_id"/>
+			<one-to-many class="PjRequest"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

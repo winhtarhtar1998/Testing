@@ -1,0 +1,19 @@
+Dear $studentName                            $today
+	Tr. $tutorName, the tutor you have requested, now connect to you.
+
+Here is the Class Details:
+------------------------------------------------------
+Tutor Name		: Tr. $tutorName
+Subject		  	   : $subjectName
+Fee			    : $fee $
+Teaching Type	  : $teachingType
+
+Your Requested Date	: $requestDate
+Connected Date		   : $today
+------------------------------------------------------
+
+Continue find & connect more tutors via TutorFinder.
+Thanks for using our App.
+	
+Best Regards,
+TutorFinder WebApp Team

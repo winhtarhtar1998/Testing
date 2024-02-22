@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.system.business.entity">
+	<class
+		name="PjRequest"
+		table="pj_request"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="request_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="requestDate"
+			column="request_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="connectedDate"
+			column="connected_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="completedDate"
+			column="completed_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="status"
+			column="status"
+			type="string"
+			not-null="false"
+			length="45"
+		/>
+		<property
+			name="extraRequestMessage"
+			column="extra_request_message"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="feedback"
+			column="feedback"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="ratingPoint"
+			column="rating_point"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="teach"
+			column="teach_id"
+			class="PjTeach"
+			not-null="true"
+		>
+		</many-to-one>
+		<many-to-one
+			name="student"
+			column="student_id"
+			class="PjStudent"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

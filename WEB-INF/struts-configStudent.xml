@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- Form Bean Definitions -->
+	<form-beans>
+		<!-- <form-bean name="XxxFormBean" type="com.gic.frame.presentation.form.XxxxForm"> 
+			</form-bean> -->
+		<form-bean name="StudentFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="StuRegFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="StuUpdateFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="FindTutorFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="MyTutorsFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="SendFeedbackFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="StuMyProfileBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="StuChangePasswordFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+		<form-bean name="StuDeleteFormBean" type="com.system.presentation.form.StudentForm">
+		</form-bean>
+				
+	</form-beans>
+	<!-- Action Mapping Definitions -->
+	<action-mappings>
+		<!-- <action path="/xxxPath" name="XxxFormBean" type="org.springframework.web.struts.DelegatingActionProxy" 
+			scope="session" validate="true" input="/WEB-INF/jsp/xxxx.jsp"> <forward name="success1" 
+			path="/WEB-INF/jsp/yyyy.jsp" /> <forward name="success" path="/WEB-INF/jsp/zzzz.jsp"> 
+			</forward> </action> -->
+		
+		<action path="/StuLoginPathFirst" name="StudentFormBean"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="false"
+		input="/WEB-INF/jsp/student_login.jsp">
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+		</forward>
+		</action>	
+		<action path="/StuLoginPath" name="StudentFormBean"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="true"
+		input="/WEB-INF/jsp/student_login.jsp">
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/stuHomePath" name="StudentFormBean"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="true"
+		input="/WEB-INF/jsp/student_login.jsp">
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp" />
+			<forward name="gotoTopTutorDetails" path="/WEB-INF/jsp/student_home_top_tutors_details.jsp" />
+			<forward name="gotoRequest" path="/WEB-INF/jsp/student_tutor_request_from_home.jsp" />
+			<forward name="gotoRequestSuccess" path="/WEB-INF/jsp/student_tutor_request_success_home.jsp" />
+		</action>
+		<action path="/StuLogoutPath" name="StudentFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session">
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		
+		<action path="/StuRegisterPathFirst" name="StuRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" input="/WEB-INF/jsp/student_register.jsp">
+			<forward name="gotoRegister" path="/WEB-INF/jsp/student_register.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		<action path="/StuRegisterPath" name="StuRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/student_register.jsp">
+			<set-property value="true" property="cancellable"></set-property>
+			<forward name="gotoRegister" path="/WEB-INF/jsp/student_register.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+			<forward name="gotoRegisterSuccess" path="/WEB-INF/jsp/student_register_success.jsp">
+			</forward>
+		</action>
+		<action path="/StuRegisterPathSuccess" name="StuRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session">
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		
+		
+		<action path="/findTutorsDetailPath" name="FindTutorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoSearch" path="/WEB-INF/jsp/student_find_tutor.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/jsp/student_find_tutor_details.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/requestTutorPath" name="FindTutorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" 
+			validate="false" input="/WEB-INF/jsp/student_tutor_request.jsp">
+			<forward name="gotoSearch" path="/WEB-INF/jsp/student_find_tutor.jsp" />
+			<forward name="gotoRequest" path="/WEB-INF/jsp/student_tutor_request.jsp" />
+			<forward name="gotoRequestSuccess" path="/WEB-INF/jsp/student_tutor_request_success.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/findTutorsPath" name="FindTutorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoSearch" path="/WEB-INF/jsp/student_find_tutor.jsp" />
+			<forward name="gotoDetail" path="/WEB-INF/jsp/student_find_tutor_details.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/findTutorsPathFirst" name="FindTutorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoSearch" path="/WEB-INF/jsp/student_find_tutor.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		
+		<action path="/myTutorsPath" name="MyTutorsFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="gotoMyTutors" path="/WEB-INF/jsp/student_my_tutors.jsp" />
+			<forward name="gotoTutorDetails" path="/WEB-INF/jsp/student_my_tutors_details.jsp" />
+			<forward name="gotoTeachDetails" path="/WEB-INF/jsp/student_my_tutors_teach_details.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		
+		<action path="/sendFeedbackPath" name="SendFeedbackFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			validate="false" input="/WEB-INF/jsp/student_send_feedback_fill.jsp">
+			<forward name="gotoSendFeedback" path="/WEB-INF/jsp/student_send_feedback.jsp" />
+			<forward name="gotoTutorDetails" path="/WEB-INF/jsp/student_send_feedback_tutors_details.jsp" />
+			<forward name="gotoTeachDetails" path="/WEB-INF/jsp/student_send_feedback_teach_details.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/sendFeedbackFillPathFirst" name="SendFeedbackFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" input="/WEB-INF/jsp/student_send_feedback_fill.jsp">
+			<forward name="gotoSendFeedbackFill" path="/WEB-INF/jsp/student_send_feedback_fill.jsp" />
+			<forward name="gotoSendFeedback" path="/WEB-INF/jsp/student_send_feedback.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/sendFeedbackFillPath" name="SendFeedbackFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/student_send_feedback_fill.jsp">
+			<set-property value="true" property="cancellable"></set-property>
+			<forward name="gotoSendFeedbackFill" path="/WEB-INF/jsp/student_send_feedback_fill.jsp" />
+			<forward name="gotoSendFeedback" path="/WEB-INF/jsp/student_send_feedback.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp"/>
+		</action>
+		<action path="/StuUpdatePathFirst" name="StuUpdateFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" input="/WEB-INF/jsp/student_update.jsp">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/student_update.jsp" />
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		<action path="/StuUpdatePath" name="StuUpdateFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/student_update.jsp">
+			<set-property value="true" property="cancellable"></set-property>
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/student_update.jsp" />
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		
+		<action path="/myProfilePath" name="StuMyProfileBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session">
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		<action path="/StuChangePasswordPathFirst" name="StuChangePasswordFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" input="/WEB-INF/jsp/student_change_password.jsp">
+			<forward name="gotoChangePassword" path="/WEB-INF/jsp/student_change_password.jsp" />
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		<action path="/StuChangePasswordPath" name="StuChangePasswordFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/student_change_password.jsp">
+			<set-property value="true" property="cancellable"></set-property>
+			<forward name="gotoChangePassword" path="/WEB-INF/jsp/student_change_password.jsp" />
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		
+		<action path="/StuDeleteProfilePathFirst" name="StuDeleteFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" input="/WEB-INF/jsp/student_delete_account.jsp">
+			<forward name="gotoNotDeleteAccount" path="/WEB-INF/jsp/student_not_delete_account.jsp" />
+			<forward name="gotoDeleteAccount" path="/WEB-INF/jsp/student_delete_account.jsp" />
+			<forward name="gotoDeleteSuccess" path="/WEB-INF/jsp/student_delete_account_success.jsp" />
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+		<action path="/StuDeleteProfilePath" name="StuDeleteFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/student_delete_account.jsp">
+			<set-property value="true" property="cancellable"></set-property>
+			<forward name="gotoNotDeleteAccount" path="/WEB-INF/jsp/student_not_delete_account.jsp" />
+			<forward name="gotoDeleteAccount" path="/WEB-INF/jsp/student_delete_account.jsp" />
+			<forward name="gotoDeleteSuccess" path="/WEB-INF/jsp/student_delete_account_success.jsp" />
+			<forward name="gotoMyProfile" path="/WEB-INF/jsp/student_profile.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/student_home.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+</struts-config>
+

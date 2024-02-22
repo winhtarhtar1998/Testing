@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         http://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+
+        <!-- Tutor's forms -->
+        <form name="TutorFormBean">
+			<field property="frmTutorEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+
+			<field property="frmPassword" depends="required,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+
+		</form>
+		<form name="RegFormBean">
+			<field property="frmRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+			<field property="frmRegSpecialization" depends="required">
+				<arg key="Specialization" resource="false" />
+			</field>
+			<field property="frmRegGender" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+			<field property="frmRegPassword" depends="required,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="frmRegConfPassword" depends="required">
+				<arg key="ConfirmPassword" resource="false" />
+			</field>
+		</form>
+		
+		<form name="UpdateFormBean">
+			<field property="frmRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegSpecialization" depends="required">
+				<arg key="Specialization" resource="false" />
+			</field>
+			<field property="frmRegGender" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+			<field property="frmRegPhoneNo" depends="required">
+				<arg key="Phone No" resource="false" />
+			</field>
+		</form>
+		
+		<form name="ChangePasswordFormBean">
+			<field property="frmCurrentPassword" depends="required">
+				<arg key="Current Password" resource="false" />
+			</field>
+			<field property="frmRegConfPassword" depends="required">
+				<arg key="Confirm Password" resource="false" />
+			</field>
+			<field property="frmRegPassword" depends="required">
+				<arg key="Password" resource="false" />
+			</field>
+		</form>
+		
+		<form name="DeleteFormBean">
+			<field property="frmCurrentPassword" depends="required">
+				<arg key="Current Password" resource="false" />
+			</field>
+		</form>
+		
+		<form name="AddSubjectFormBean">
+			<field property="frmAddFee" depends="required,double">
+				<arg key="Fee" resource="false" />
+			</field>
+			<field property="frmAddPeriodPerWeek" depends="required,integer">
+				<arg key="Period Per Week" resource="false"/>
+			</field>
+			<field property="frmAddPreferableTime" depends="required">
+				<arg key="Preferable Time" resource="false" />
+			</field>
+		</form>
+		
+		<form name="EditSubjectFormBean">
+			<field property="frmAddFee" depends="required,double">
+				<arg key="Fee" resource="false" />
+			</field>
+			<field property="frmAddPeriodPerWeek" depends="required,integer">
+				<arg key="Period Per Week" resource="false"/>
+			</field>
+			<field property="frmAddPreferableTime" depends="required">
+				<arg key="Preferable Time" resource="false" />
+			</field>
+		</form>
+		
+		<!-- Student's forms -->
+        <form name="StudentFormBean">
+			<field property="frmStudentEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+
+			<field property="frmPassword" depends="required,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+
+		</form>
+		<form name="StuRegFormBean">
+			<field property="frmRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+			<field property="frmRegGender" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+			<field property="frmRegPassword" depends="required,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="frmRegConfPassword" depends="required">
+				<arg key="ConfirmPassword" resource="false" />
+			</field>
+			<field property="frmRegPhoneNo" depends="required">
+				<arg key="Phone Number" resource="false" />
+			</field>
+		</form>
+		<form name="StuUpdateFormBean">
+			<field property="frmRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegGrade" depends="required">
+				<arg key="Grade" resource="false" />
+			</field>
+			<field property="frmRegGender" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+			<field property="frmRegPhoneNo" depends="required">
+				<arg key="Phone Number" resource="false" />
+			</field>
+		</form>
+		
+		<form name="StuChangePasswordFormBean">
+			<field property="frmCurrentPassword" depends="required">
+				<arg key="Current Password" resource="false" />
+			</field>
+			<field property="frmRegConfPassword" depends="required">
+				<arg key="Confirm Password" resource="false" />
+			</field>
+			<field property="frmRegPassword" depends="required">
+				<arg key="Password" resource="false" />
+			</field>
+		</form>
+		<form name="StuDeleteFormBean">
+			<field property="frmCurrentPassword" depends="required">
+				<arg key="Current Password" resource="false" />
+			</field>
+		</form>
+		
+		<form name="SendFeedbackFormBean">
+			<field property="frmFeedbackArea" depends="required">
+				<arg key="Feedback Area" resource="false" />
+		</field>
+		</form>
+		
+    </formset>
+
+    
+</form-validation>
